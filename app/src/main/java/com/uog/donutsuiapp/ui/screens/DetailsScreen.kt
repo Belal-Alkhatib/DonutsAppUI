@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -25,7 +24,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.uog.donutsuiapp.R
 import com.uog.donutsuiapp.ui.composables.AngledButton
 import com.uog.donutsuiapp.ui.composables.SmallAngledButton
-import com.uog.donutsuiapp.ui.composables.SpacerVertical
 import com.uog.donutsuiapp.ui.theme.Black
 import com.uog.donutsuiapp.ui.theme.Primary
 import com.uog.donutsuiapp.ui.theme.Tertiary
@@ -34,11 +32,7 @@ import com.uog.donutsuiapp.ui.theme.TextSecondary
 import com.uog.donutsuiapp.ui.theme.White
 import com.uog.donutsuiapp.ui.theme.radius40
 import com.uog.donutsuiapp.ui.theme.space16
-import com.uog.donutsuiapp.ui.theme.space2
 import com.uog.donutsuiapp.ui.theme.space24
-import com.uog.donutsuiapp.ui.theme.space32
-import com.uog.donutsuiapp.ui.theme.space40
-import com.uog.donutsuiapp.ui.theme.space45
 import com.uog.donutsuiapp.ui.theme.space8
 import com.uog.donutsuiapp.ui.theme.textLetterSpacing8
 import com.uog.donutsuiapp.ui.theme.textSize22
@@ -52,7 +46,7 @@ fun DetailsScreen() {
 }
 
 @Composable
-fun DetailsContent() {
+private fun DetailsContent() {
 
     Column(
         modifier = Modifier
@@ -63,7 +57,7 @@ fun DetailsContent() {
             Image(
                 painter = painterResource(id = R.drawable.ic_back_arrow),
                 contentDescription = null,
-                modifier = Modifier.padding(top = space24, start = space32)
+                modifier = Modifier.padding(top = space24, start = space24)
 
             )
             Image(
@@ -86,7 +80,7 @@ fun DetailsContent() {
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(horizontal = space40)
+                        .padding(horizontal = space24)
                 ) {
 
                     Text(

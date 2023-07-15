@@ -13,6 +13,7 @@ val space2 = 2.dp
 val space4 = 4.dp
 val space8 = 8.dp
 val space10 = 10.dp
+val space12 = 12.dp
 val space16 = 16.dp
 val space24 = 24.dp
 val space32 = 32.dp
@@ -59,5 +60,7 @@ val radius50 = 50.dp
 
 val buttonHeight = 67.dp
 val buttonSmallHeight = 52.dp
+val cardOfferWidth = 192.dp
+val cardDonutWidth = 138.dp
 
 
