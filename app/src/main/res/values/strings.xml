@@ -16,4 +16,9 @@
     <string name="order_your_favorit">Order your favourite donuts from here</string>
     <string name="today_offers">Today Offers</string>
     <string name="donuts">Donuts</string>
+    <string name="donut_escription">These Baked Strawberry Donuts are filled with fresh strawberries</string>
+    <string name="_20">$20</string>
+    <string name="_16">$16</string>
+    <string name="_22">$22</string>
+    <string name="chocolate_cherry">Chocolate Cherry</string>
 </resources>

@@ -3,6 +3,7 @@ package com.uog.donutsuiapp.ui.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -31,6 +32,8 @@ import com.uog.donutsuiapp.ui.theme.TextSecondary
 import com.uog.donutsuiapp.ui.theme.White
 import com.uog.donutsuiapp.ui.theme.space16
 import com.uog.donutsuiapp.ui.theme.space24
+import com.uog.donutsuiapp.ui.theme.space40
+import com.uog.donutsuiapp.ui.theme.space8
 import com.uog.donutsuiapp.ui.theme.typography
 
 @Preview
@@ -41,12 +44,15 @@ fun HomeScreen() {
 
 @Composable
 private fun HomeContent() {
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .background(color = White)) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = White)
+    ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth().padding(vertical = space16, horizontal = space24),
+                .fillMaxWidth()
+                .padding(vertical = space16, horizontal = space24),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
 
@@ -64,11 +70,14 @@ private fun HomeContent() {
                     color = TextSecondary,
                     textAlign = TextAlign.Start,
 
-                )
+                    )
             }
 
             SmallAngledButton(onClick = { }, contentColor = Primary, containerColor = Tertiary) {
-                Icon(painter = painterResource(id = R.drawable.ic_search), contentDescription = null)
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_search),
+                    contentDescription = null
+                )
             }
         }
 
@@ -80,15 +89,21 @@ private fun HomeContent() {
             modifier = Modifier.padding(bottom = space16, start = space24)
         )
 
-        LazyRow(modifier = Modifier.weight(3f).clipToBounds().padding(start = space24)){
-            items(3){
+        LazyRow(
+            modifier = Modifier
+                .weight(3f)
+                .clipToBounds(),
+            horizontalArrangement = Arrangement.spacedBy(space8),
+            contentPadding = PaddingValues(start = space40)
+        ) {
+            items(3) {
                 TodayOfferCard(
                     containerColor = if (it % 2 == 0) Tertiary else Blue,
-                    donutName = "Strawberry Wheel",
-                    imageRes = R.drawable.ic_medium_donut1,
-                    donutDescription = "These Baked Strawberry Donuts are filled with fresh strawberries...",
-                    previousPrice = "$20",
-                    currentPrice = "$16"
+                    donutName = stringResource(id = R.string.strawberry_wheel),
+                    imageRes = if (it % 2 == 0) R.drawable.ic_medium_donut1 else R.drawable.ic_medium_donut2,
+                    donutDescription = stringResource(R.string.donut_escription),
+                    previousPrice = stringResource(R.string._20),
+                    currentPrice = stringResource(R.string._16)
                 )
             }
         }
@@ -100,13 +115,17 @@ private fun HomeContent() {
             modifier = Modifier.padding(bottom = space16, start = space24)
         )
 
-        LazyRow(modifier = Modifier.weight(1f).padding(start = space24), horizontalArrangement = Arrangement.spacedBy(space16)){
-            items(3){
+        LazyRow(
+            modifier = Modifier.weight(1f),
+            contentPadding = PaddingValues(start = space40),
+            horizontalArrangement = Arrangement.spacedBy(space16)
+        ) {
+            items(3) {
                 DonutsCard(
-                    containerColor = if (it % 2 == 0) Tertiary else Blue,
-                    donutName = "Chocolate Cherry",
+                    containerColor = White,
+                    donutName = stringResource(R.string.chocolate_cherry),
                     imageRes = R.drawable.ic_small_donut1,
-                    price = "$22",
+                    price = stringResource(R.string._22),
                 )
             }
         }

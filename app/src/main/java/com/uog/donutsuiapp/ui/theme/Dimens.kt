@@ -43,11 +43,6 @@ val textLetterSpacing8 = 0.08.em
 
 //endregion
 
-//region Border Size Dimensions
-val border1 = 1.sp
-
-//endregion
-
 
 // region Radius Dimensions
 val radius8 = 8.dp
@@ -62,5 +57,8 @@ val buttonHeight = 67.dp
 val buttonSmallHeight = 52.dp
 val cardOfferWidth = 192.dp
 val cardDonutWidth = 138.dp
+val smallIconSize = 35.dp
+val largeDonutHeight = 200.dp
+val largeDonutWidth = 362.dp
 
 
