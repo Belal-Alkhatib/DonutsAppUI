@@ -100,7 +100,7 @@ private fun HomeContent() {
                 TodayOfferCard(
                     containerColor = if (it % 2 == 0) Tertiary else Blue,
                     donutName = stringResource(id = R.string.strawberry_wheel),
-                    imageRes = if (it % 2 == 0) R.drawable.ic_medium_donut1 else R.drawable.ic_medium_donut2,
+                    imageRes = R.drawable.ic_medium_donut1,
                     donutDescription = stringResource(R.string.donut_escription),
                     previousPrice = stringResource(R.string._20),
                     currentPrice = stringResource(R.string._16)

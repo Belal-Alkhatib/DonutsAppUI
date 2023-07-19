@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.uog.donutsuiapp.ui.screens.HomeScreen
+import com.uog.donutsuiapp.ui.screens.DetailsScreen
 import com.uog.donutsuiapp.ui.theme.DonutsUIAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,8 +24,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //WelcomeScreen()
-                    //DetailsScreen()
-                    HomeScreen()
+                    DetailsScreen()
+                    //HomeScreen()
                 }
             }
         }
