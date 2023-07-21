@@ -20,7 +20,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.uog.donutsuiapp.R
+import com.uog.donutsuiapp.Screen
 import com.uog.donutsuiapp.ui.composables.AngledButton
 import com.uog.donutsuiapp.ui.composables.SpacerVertical
 import com.uog.donutsuiapp.ui.theme.Primary
@@ -34,9 +36,11 @@ import com.uog.donutsuiapp.ui.theme.typography
 
 @Composable
 fun WelcomeScreen(
-//    navController: NavHostController,
+    navController: NavHostController,
 ) {
-    WelcomeContent(onGetStatingClicked = {})
+    WelcomeContent(
+        onGetStatingClicked = { navController.navigate(Screen.HomeScreen.rout)}
+    )
 }
 
 

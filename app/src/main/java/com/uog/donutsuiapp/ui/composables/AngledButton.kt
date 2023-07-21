@@ -11,6 +11,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.uog.donutsuiapp.R
 import com.uog.donutsuiapp.ui.theme.Black
+import com.uog.donutsuiapp.ui.theme.Secondary
 import com.uog.donutsuiapp.ui.theme.Tertiary
 import com.uog.donutsuiapp.ui.theme.White
 import com.uog.donutsuiapp.ui.theme.buttonHeight
@@ -26,10 +27,4 @@ fun AngledButton(modifier:Modifier = Modifier, title: String, onClick: () -> Uni
     ) {
         Text(text = title, style = typography.titleLarge)
     }
-}
-
-@Preview
-@Composable
-fun test() {
-    AngledButton(title = stringResource(R.string.get_started), onClick = {})
 }

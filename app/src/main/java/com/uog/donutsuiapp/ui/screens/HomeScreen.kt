@@ -20,7 +20,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.uog.donutsuiapp.R
+import com.uog.donutsuiapp.Screen
 import com.uog.donutsuiapp.ui.composables.DonutsCard
 import com.uog.donutsuiapp.ui.composables.SmallAngledButton
 import com.uog.donutsuiapp.ui.composables.TodayOfferCard
@@ -36,14 +38,17 @@ import com.uog.donutsuiapp.ui.theme.space40
 import com.uog.donutsuiapp.ui.theme.space8
 import com.uog.donutsuiapp.ui.theme.typography
 
-@Preview
 @Composable
-fun HomeScreen() {
-    HomeContent()
+fun HomeScreen(
+    navController: NavController
+) {
+    HomeContent(onTodayOfferCardClicked = { navController.navigate(Screen.DetailsScreen.rout) })
 }
 
 @Composable
-private fun HomeContent() {
+private fun HomeContent(
+    onTodayOfferCardClicked: () -> Unit,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -75,8 +80,7 @@ private fun HomeContent() {
 
             SmallAngledButton(onClick = { }, contentColor = Primary, containerColor = Tertiary) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_search),
-                    contentDescription = null
+                    painter = painterResource(id = R.drawable.ic_search), contentDescription = null
                 )
             }
         }
@@ -97,14 +101,13 @@ private fun HomeContent() {
             contentPadding = PaddingValues(start = space40)
         ) {
             items(3) {
-                TodayOfferCard(
-                    containerColor = if (it % 2 == 0) Tertiary else Blue,
+                TodayOfferCard(containerColor = if (it % 2 == 0) Tertiary else Blue,
                     donutName = stringResource(id = R.string.strawberry_wheel),
                     imageRes = R.drawable.ic_medium_donut1,
                     donutDescription = stringResource(R.string.donut_escription),
                     previousPrice = stringResource(R.string._20),
-                    currentPrice = stringResource(R.string._16)
-                )
+                    currentPrice = stringResource(R.string._16),
+                    onCardClicked = { onTodayOfferCardClicked() })
             }
         }
 

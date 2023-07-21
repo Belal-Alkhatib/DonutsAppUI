@@ -3,6 +3,7 @@ package com.uog.donutsuiapp.ui.composables
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -46,6 +47,8 @@ import com.uog.donutsuiapp.ui.theme.typography
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun TodayOfferCard(
+    modifier: Modifier = Modifier,
+    onCardClicked: () -> Unit,
     donutName: String,
     donutDescription: String,
     @DrawableRes imageRes: Int,
@@ -55,7 +58,8 @@ fun TodayOfferCard(
 ) {
 
     ConstraintLayout(
-        modifier = Modifier
+        modifier = modifier
+            .clickable { onCardClicked() }
             .width(cardOfferWidth + space40)
             .background(color = White)
     ) {
@@ -133,6 +137,7 @@ fun PreviewTodayOfferCard() {
         imageRes = R.drawable.ic_medium_donut1,
         donutDescription = "These Baked Strawberry Donuts are filled with fresh strawberries...",
         previousPrice = "$20",
-        currentPrice = "$16"
+        currentPrice = "$16",
+        onCardClicked = {}
     )
 }

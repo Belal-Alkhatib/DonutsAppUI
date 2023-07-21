@@ -2,6 +2,7 @@ package com.uog.donutsuiapp.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,6 +22,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.uog.donutsuiapp.R
 import com.uog.donutsuiapp.ui.composables.AngledButton
 import com.uog.donutsuiapp.ui.composables.SmallAngledButton
@@ -38,15 +40,21 @@ import com.uog.donutsuiapp.ui.theme.textLetterSpacing8
 import com.uog.donutsuiapp.ui.theme.textSize22
 import com.uog.donutsuiapp.ui.theme.typography
 
-@Preview
 @Composable
-fun DetailsScreen() {
+fun DetailsScreen(
+    navController: NavController
 
-    DetailsContent()
+) {
+
+    DetailsContent(
+        onBackButttonClicked = { navController.popBackStack() }
+    )
 }
 
 @Composable
-private fun DetailsContent() {
+private fun DetailsContent(
+    onBackButttonClicked: () -> Unit
+) {
 
     Column(
         modifier = Modifier
@@ -57,7 +65,9 @@ private fun DetailsContent() {
             Image(
                 painter = painterResource(id = R.drawable.ic_back_arrow),
                 contentDescription = null,
-                modifier = Modifier.padding(top = space24, start = space24)
+                modifier = Modifier
+                    .padding(top = space24, start = space24)
+                    .clickable { onBackButttonClicked() }
 
             )
             Image(
@@ -154,8 +164,7 @@ private fun DetailsContent() {
 
                     Row(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            ,
+                            .fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(space16),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
@@ -168,7 +177,7 @@ private fun DetailsContent() {
 
                         AngledButton(
                             title = stringResource(R.string.add_to_card),
-                            onClick = {  },
+                            onClick = { },
                             containerColor = Primary,
                             contentColor = White,
                             modifier = Modifier.fillMaxWidth()

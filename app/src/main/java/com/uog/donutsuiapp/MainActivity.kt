@@ -10,7 +10,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.uog.donutsuiapp.ui.screens.DetailsScreen
+import com.uog.donutsuiapp.ui.screens.HomeScreen
+import com.uog.donutsuiapp.ui.screens.WelcomeScreen
 import com.uog.donutsuiapp.ui.theme.DonutsUIAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,13 +23,18 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             DonutsUIAppTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    val navController = rememberNavController()
+                    NavHost(navController = navController, startDestination = Screen.WelcomeScreen.rout){
+                        composable(Screen.WelcomeScreen.rout){ WelcomeScreen(navController = navController)}
+                        composable(Screen.HomeScreen.rout){ HomeScreen(navController = navController) }
+                        composable(Screen.DetailsScreen.rout){ DetailsScreen(navController = navController) }
+                    }
                     //WelcomeScreen()
-                    DetailsScreen()
+                    //DetailsScreen()
                     //HomeScreen()
                 }
             }
