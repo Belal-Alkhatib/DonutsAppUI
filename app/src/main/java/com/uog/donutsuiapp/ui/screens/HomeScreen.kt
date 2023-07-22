@@ -19,10 +19,10 @@ import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import com.uog.donutsuiapp.R
 import com.uog.donutsuiapp.Screen
+import com.uog.donutsuiapp.ui.composables.BottomNavigation
 import com.uog.donutsuiapp.ui.composables.DonutsCard
 import com.uog.donutsuiapp.ui.composables.SmallAngledButton
 import com.uog.donutsuiapp.ui.composables.TodayOfferCard
@@ -134,6 +134,9 @@ private fun HomeContent(
         }
 
         Spacer(modifier = Modifier.weight(0.33f))
+
+        BottomNavigation()
+
 
     }
 }

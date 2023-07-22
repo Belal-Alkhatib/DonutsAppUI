@@ -7,12 +7,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,13 +25,11 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.uog.donutsuiapp.R
 import com.uog.donutsuiapp.ui.theme.Black
 import com.uog.donutsuiapp.ui.theme.Blue
-import com.uog.donutsuiapp.ui.theme.Primary
 import com.uog.donutsuiapp.ui.theme.TextSecondary
 import com.uog.donutsuiapp.ui.theme.White
 import com.uog.donutsuiapp.ui.theme.cardOfferWidth
 import com.uog.donutsuiapp.ui.theme.largeDonutHeight
 import com.uog.donutsuiapp.ui.theme.largeDonutWidth
-import com.uog.donutsuiapp.ui.theme.smallIconSize
 import com.uog.donutsuiapp.ui.theme.space16
 import com.uog.donutsuiapp.ui.theme.space32
 import com.uog.donutsuiapp.ui.theme.space4
@@ -75,17 +70,7 @@ fun TodayOfferCard(
                 }, colors = CardDefaults.cardColors(containerColor = containerColor)
         ) {
             Column(modifier = Modifier.padding(start = space16, top = space16, bottom = space16)) {
-                SmallAngledButton(
-                    onClick = { },
-                    contentColor = Primary,
-                    shape = CircleShape,
-                    modifier = Modifier.size(smallIconSize)
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.ic_favorit),
-                        contentDescription = null,
-                    )
-                }
+                LikeAnimation()
 
                 SpacerVertical(space = 160.dp)
                 Text(
