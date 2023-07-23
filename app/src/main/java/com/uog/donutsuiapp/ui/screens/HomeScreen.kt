@@ -78,9 +78,11 @@ private fun HomeContent(
                     )
             }
 
-            SmallAngledButton(onClick = { }, contentColor = Primary, containerColor = Tertiary) {
+            SmallAngledButton(onClick = { }, containerColor = Tertiary) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_search), contentDescription = null
+                    painter = painterResource(id = R.drawable.ic_search),
+                    contentDescription = null,
+                    tint = Primary
                 )
             }
         }
@@ -90,7 +92,7 @@ private fun HomeContent(
             text = stringResource(R.string.today_offers),
             style = typography.titleLarge,
             color = Black,
-            modifier = Modifier.padding(bottom = space16, start = space24)
+            modifier = Modifier.padding(start = space24)
         )
 
         LazyRow(

@@ -10,11 +10,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -25,6 +28,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.uog.donutsuiapp.R
 import com.uog.donutsuiapp.ui.theme.Black
 import com.uog.donutsuiapp.ui.theme.Blue
+import com.uog.donutsuiapp.ui.theme.ShadowColor
 import com.uog.donutsuiapp.ui.theme.TextSecondary
 import com.uog.donutsuiapp.ui.theme.White
 import com.uog.donutsuiapp.ui.theme.cardOfferWidth
@@ -54,6 +58,7 @@ fun TodayOfferCard(
 
     ConstraintLayout(
         modifier = modifier
+            .padding(top = space16)
             .clickable { onCardClicked() }
             .width(cardOfferWidth + space40)
             .background(color = White)
@@ -63,11 +68,13 @@ fun TodayOfferCard(
         Card(
             modifier = Modifier
                 .width(cardOfferWidth)
+                .shadow(elevation = space16, spotColor = ShadowColor)
                 .constrainAs(cardOffer) {
                     top.linkTo(parent.top)
                     start.linkTo(parent.start)
 
-                }, colors = CardDefaults.cardColors(containerColor = containerColor)
+                },
+            colors = CardDefaults.cardColors(containerColor = containerColor),
         ) {
             Column(modifier = Modifier.padding(start = space16, top = space16, bottom = space16)) {
                 LikeAnimation()
@@ -101,8 +108,7 @@ fun TodayOfferCard(
                 .height(largeDonutHeight)
                 .width(largeDonutWidth)
                 .constrainAs(imageDonut) {
-                    top.linkTo(cardOffer.top,space32)
-                    //bottom.linkTo(cardOffer.bottom, space32)
+                    top.linkTo(cardOffer.top, space32)
                     end.linkTo(parent.end)
                 },
             contentScale = ContentScale.Crop,
