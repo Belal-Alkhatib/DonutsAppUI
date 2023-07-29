@@ -17,7 +17,6 @@ val Tertiary = Color(0xFFFED8DF)
 val Black = Color(0xFF000000)
 val ShadowColor = Color(0x99000000)
 
-val Gray = Color(0xFF585858)
 val Blue = Color(0xFFD7E4F6)
 
 val TextPrimary = Color(0xCC000000)
