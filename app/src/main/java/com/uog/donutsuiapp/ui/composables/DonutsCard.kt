@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -25,12 +26,14 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.uog.donutsuiapp.R
 import com.uog.donutsuiapp.ui.theme.Blue
 import com.uog.donutsuiapp.ui.theme.Primary
+import com.uog.donutsuiapp.ui.theme.ShadowColor
 import com.uog.donutsuiapp.ui.theme.TextSecondary
 import com.uog.donutsuiapp.ui.theme.White
 import com.uog.donutsuiapp.ui.theme.cardDonutsHeight
 import com.uog.donutsuiapp.ui.theme.radius10
 import com.uog.donutsuiapp.ui.theme.radius20
 import com.uog.donutsuiapp.ui.theme.space10
+import com.uog.donutsuiapp.ui.theme.space16
 import com.uog.donutsuiapp.ui.theme.space4
 import com.uog.donutsuiapp.ui.theme.space40
 import com.uog.donutsuiapp.ui.theme.space56
@@ -50,25 +53,23 @@ fun DonutsCard(
     ConstraintLayout(
         modifier = Modifier
             .height(cardDonutsHeight + space56)
-            .background(color = White)
+            .background(color = White, shape = RoundedCornerShape(
+                topStart = radius20,
+                topEnd = radius20,
+                bottomStart = radius10,
+                bottomEnd = radius10
+            ))
     ) {
         val (cardDonuts, imageDonut) = createRefs()
 
         Card(
             modifier = modifier
                 .height(cardDonutsHeight)
+                .shadow(elevation = space16, spotColor = ShadowColor)
                 .constrainAs(cardDonuts) {
                     bottom.linkTo(parent.bottom)
                 },
             colors = CardDefaults.cardColors(containerColor = containerColor),
-            elevation = CardDefaults.elevatedCardElevation( defaultElevation = space8),
-            shape = RoundedCornerShape(
-                topStart = radius20,
-                topEnd = radius20,
-                bottomStart = radius10,
-                bottomEnd = radius10
-            )
-
         ) {
             Column(
                 modifier = Modifier.padding(start = space10, end = space10, bottom = space10),

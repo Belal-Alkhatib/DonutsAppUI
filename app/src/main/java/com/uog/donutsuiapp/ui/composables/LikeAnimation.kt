@@ -19,8 +19,6 @@ import androidx.compose.ui.unit.Dp
 import com.uog.donutsuiapp.R
 import com.uog.donutsuiapp.ui.theme.Primary
 import com.uog.donutsuiapp.ui.theme.smallIconSize
-import com.uog.donutsuiapp.ui.theme.space2
-import com.uog.donutsuiapp.ui.theme.space4
 import com.uog.donutsuiapp.ui.theme.space8
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -38,7 +36,7 @@ fun LikeAnimation(modifier: Modifier = Modifier, selected: Boolean = false, butt
 
     val coroutineScope = rememberCoroutineScope()
 
-    val favoriteIcon = if (isSelected) R.drawable.ic_favorit_fill else R.drawable.ic_favorit
+    val favoriteIcon = if (isSelected) R.drawable.ic_filled_favorit else R.drawable.ic_favorit
 
     Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = modifier) {
 

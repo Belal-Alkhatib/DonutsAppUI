@@ -11,15 +11,18 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.uog.donutsuiapp.R
-import com.uog.donutsuiapp.Screen
+import com.uog.donutsuiapp.navigation.Screen
 import com.uog.donutsuiapp.ui.composables.AngledButton
 import com.uog.donutsuiapp.ui.composables.SpacerVertical
+import com.uog.donutsuiapp.ui.composables.setStatusBarColor
 import com.uog.donutsuiapp.ui.theme.Primary
 import com.uog.donutsuiapp.ui.theme.Secondary
 import com.uog.donutsuiapp.ui.theme.Tertiary
@@ -35,6 +38,13 @@ fun WelcomeScreen(
     WelcomeContent(
         onGetStatingClicked = { navController.navigate(Screen.HomeScreen.rout)}
     )
+    val systemUIController = rememberSystemUiController()
+    LaunchedEffect(true) {
+        setStatusBarColor(
+            systemUIController = systemUIController,
+            color = Tertiary,
+        )
+    }
 }
 
 
